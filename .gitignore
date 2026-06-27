@@ -12,5 +12,8 @@ node_modules
 # Supabase
 supabase/.temp
 
+# Local MCP config (contains API keys — never commit)
+.mcp.json
+
 # netlify
 .netlify
