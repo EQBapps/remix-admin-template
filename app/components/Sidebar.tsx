@@ -30,6 +30,21 @@ const NAV_ITEMS = [
   },
 ];
 
+const FACTORY_NAV_ITEMS = [
+  {
+    label: "Pipeline",
+    href: "/dashboard/factory",
+  },
+  {
+    label: "Analytics",
+    href: "/dashboard/factory/analytics",
+  },
+  {
+    label: "Seed Batch",
+    href: "/dashboard/factory/seed",
+  },
+];
+
 type Props = {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -85,6 +100,34 @@ export default function Sidebar({ isOpen, setIsOpen }: Props) {
                         ) : (
                           <ArrowRightIcon />
                         )}
+                      </span>
+                    </>
+                  )}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+
+          <p className="px-2 pt-6 pb-2 text-xs font-semibold tracking-widest uppercase text-slate-400">
+            Content Factory
+          </p>
+          <ul className="border-t border-slate-200">
+            {FACTORY_NAV_ITEMS.map((item) => (
+              <li key={item.label}>
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "flex items-center justify-between px-2 py-4 border-b border-cyan-300"
+                      : "flex items-center justify-between px-2 py-4 border-b border-slate-200 group hover:border-cyan-300"
+                  }
+                  end
+                >
+                  {({ isActive }) => (
+                    <>
+                      {item.label}
+                      <span className={isActive ? "text-cyan-300" : "text-slate-300 group-hover:text-cyan-300"}>
+                        <ArrowRightIcon />
                       </span>
                     </>
                   )}
